@@ -1,3 +1,11 @@
+# sapper-template-nyt
+
+This is a fork of [sapper-template](https://github.com/sveltejs/sapper-template) with NYT-specific modifications, such as the addition of a `/healthcheck` route and a Dockerfile so that apps can be managed by Meta.
+
+[Sapper](https://sapper.svelte.technology) is a Node.js framework for building universal (i.e. server-rendered, but with client-side navigation) web apps. Speak to Rich Harris (investigations, x3574) if you have questions.
+
+---
+
 # sapper-template
 
 The default [Sapper](https://github.com/sveltejs/sapper) template. To clone it and get started:
