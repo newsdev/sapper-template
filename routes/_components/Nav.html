@@ -6,12 +6,16 @@
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
 		<li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a></li>
+
+		{#if $user}
+			<li class="user">{$user.email}</li>
+		{/if}
 	</ul>
 </nav>
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(170,30,30,0.1);
+		border-bottom: 1px solid #f4f4f4;
 		font-weight: 300;
 		padding: 0 1em;
 	}
@@ -43,13 +47,19 @@
 		content: '';
 		width: calc(100% - 1em);
 		height: 2px;
-		background-color: rgb(170,30,30);
+		background-color: #6288a5;
 		display: block;
 		bottom: -1px;
 	}
 
 	a {
 		text-decoration: none;
+		padding: 1em 0.5em;
+		display: block;
+	}
+
+	.user {
+		float: right;
 		padding: 1em 0.5em;
 		display: block;
 	}
