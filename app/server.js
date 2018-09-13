@@ -6,10 +6,13 @@ import compression from 'compression';
 import { Store } from 'svelte/store.js';
 import { manifest } from './manifest/server.js';
 
+const { PORT, NODE_ENV } = process.env;
+const dev = NODE_ENV === 'development';
+
 polka() // You can also use Express
 	.use(
 		compression({ threshold: 0 }),
-		sirv('assets'),
+		sirv('assets', { dev }),
 		sapper({
 			manifest,
 			store: req => {
@@ -29,7 +32,7 @@ polka() // You can also use Express
 			}
 		})
 	)
-	.listen(process.env.PORT)
+	.listen(PORT)
 	.catch(err => {
 		console.log('error', err);
-	})
+	});
